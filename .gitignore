@@ -1,0 +1,4 @@
+# Created by .gitignore support plugin (hsz.mobi)
+dropwizard-render.yml
+.idea
+samples-deeplearning4j.iml

@@ -1,0 +1,34 @@
+buildscript {
+    repositories {
+        mavenLocal()
+        jcenter()
+        maven { url 'http://repo.spring.io/plugins-release' }
+    }
+
+    dependencies {
+        classpath("org.springframework.build.gradle:propdeps-plugin:$propdepsPluginVersion")
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'propdeps'
+
+repositories {
+    jcenter()
+
+    // If `mavenLocal()` is placed before `jcenter()`,
+    // you can see the source code for libraries in IntelliJ.
+    // Why?
+    mavenLocal()
+}
+
+dependencies {
+    compile("org.deeplearning4j:deeplearning4j-nlp:$deeplearning4JVersion")
+    compile("org.deeplearning4j:deeplearning4j-ui:$deeplearning4JVersion")
+    compile("org.nd4j:nd4j-x86:$nd4JVersion")
+    
+    provided("org.projectlombok:lombok:$lombokVersion")
+
+    testCompile("org.assertj:assertj-core:$assertJVersion")
+    testCompile("junit:junit:$jUnitVersion")
+}
